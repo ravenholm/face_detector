@@ -2,18 +2,19 @@
 from imutils import face_utils
 import dlib
 import cv2
-from pytictoc import TicToc
+# from pytictoc import TicToc
 
 # initialize dlib's face detector (HOG-based) and then create
 # the facial landmark predictor
-p = "/home/syed/perDeep/face_detector/shape_predictor_68_face_landmarks.dat"
+p = r"C:\Users\Sx\Documents\AI\Intelexica\Weights_Models_Predictors\shape_predictor_68_face_landmarks.dat"
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(p)
-t = TicToc()
+# t = TicToc()
 cap = cv2.VideoCapture(0)
 
 while (True):
-    t.tic()
+    # t.tic()
+
     # Capture frame-by-frame
     ret, frame = cap.read()
 
@@ -35,7 +36,7 @@ while (True):
             cv2.circle(frame, (x, y), 2, (0, 255, 0), -1)
     # show the output image with the face detections + facial landmarks
     cv2.imshow('frame', frame)
-    t.toc()
+    # t.toc()
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
